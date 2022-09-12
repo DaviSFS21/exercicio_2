@@ -108,29 +108,29 @@
   </div>
   <div class="control">
     <label class="radio">
-      <input type="radio" name="answer">
+      <input type="radio" name="answer" oninput="a_vista()">
       À Vista
     </label>
     <label class="radio">
-      <input type="radio" name="answer">
+      <input type="radio" name="answer" id="prazo">
       À Prazo
     </label>
     <br>
     Quantidade de parcelas:<br>
       <label class="radio">
-        <input type="radio" id="vezes" value=2 name="answer" oninput="parcela()">
+        <input type="radio" id="vezes2" value=2 name="answer" oninput="parcela2()">
         2x
       </label><br>
       <label class="radio">
-        <input type="radio" id="vezes" value=3 name="answer" oninput="parcela()">
+        <input type="radio" id="vezes3" value=3 name="answer" oninput="parcela3()">
         3x
       </label><br>
       <label class="radio">
-        <input type="radio" id="vezes" value=4 name="answer" oninput="parcela()">
+        <input type="radio" id="vezes4" value=4 name="answer" oninput="parcela4()">
         4x
       </label><br>
       <label class="radio">
-        <input type="radio" id="vezes" value=5 name="answer" oninput="parcela()">
+        <input type="radio" id="vezes5" value=5 name="answer" oninput="parcela5()">
         5x
       </label>
     <h3>Preço total: R$<?php echo $total; ?> </h2><br>
@@ -140,8 +140,24 @@
     <a href="index.html"><button onclick="alert('Pedido feito com sucesso!\nObrigado pela preferência.')" class="btn-carrinho">Pagamento</button></a>
   </div>
   <script text="text/javascript">
-    function myFunction() {
-      var x = document.getElementById("vezes").value;
+    function a_vista() {
+      document.getElementById("num_parcelas").innerHTML = "";
+    }
+    function parcela2() {
+      var x = document.getElementById("vezes2").value;
+      document.getElementById("num_parcelas").innerHTML = x + "x";
+      document.getElementById("prazo").innerHTML = "on";
+    }
+    function parcela3() {
+      var x = document.getElementById("vezes3").value;
+      document.getElementById("num_parcelas").innerHTML = x + "x";
+    }
+    function parcela4() {
+      var x = document.getElementById("vezes4").value;
+      document.getElementById("num_parcelas").innerHTML = x + "x";
+    }
+    function parcela5() {
+      var x = document.getElementById("vezes5").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
     }
   </script>
