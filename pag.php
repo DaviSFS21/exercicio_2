@@ -116,18 +116,34 @@
       À Prazo
     </label>
     <br>
-    Quantidade de parcelas <select name="">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <h3>Preço total: R$<?php echo $total; ?> </h3>
+    Quantidade de parcelas:<br>
+      <label class="radio">
+        <input type="radio" id="vezes" value=2 name="answer" oninput="parcela()">
+        2x
+      </label><br>
+      <label class="radio">
+        <input type="radio" id="vezes" value=3 name="answer" oninput="parcela()">
+        3x
+      </label><br>
+      <label class="radio">
+        <input type="radio" id="vezes" value=4 name="answer" oninput="parcela()">
+        4x
+      </label><br>
+      <label class="radio">
+        <input type="radio" id="vezes" value=5 name="answer" oninput="parcela()">
+        5x
+      </label>
+    <h3>Preço total: R$<?php echo $total; ?> </h2><br>
+    <h4 id=num_parcelas></h4>
   </div>
   <div class="btn-carrinho">
-    <a href="pag.html"><button onclick="alert('Pedido feito com sucesso!\nObrigado pela preferência.')" class="btn-carrinho">Pagamento</button></a>
+    <a href="index.html"><button onclick="alert('Pedido feito com sucesso!\nObrigado pela preferência.')" class="btn-carrinho">Pagamento</button></a>
   </div>
+  <script text="text/javascript">
+    function myFunction() {
+      var x = document.getElementById("vezes").value;
+      document.getElementById("num_parcelas").innerHTML = x + "x";
+    }
+  </script>
 </body>
-
 </html>
