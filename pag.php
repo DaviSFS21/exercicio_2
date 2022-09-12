@@ -137,6 +137,8 @@
     <button onclick="redirect()" class="btn-carrinho" id="btn" disabled>Pagamento</button>
   </div>
   <script text="text/javascript">
+    
+    total = <?php echo $total; ?>;
 
     if(<?php echo $total; ?> == 0){
       alert("Não há itens no carrrinho!");
@@ -154,7 +156,7 @@
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
       preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
-      apresPrecoFinal()
+      apresPrecoFinal();
       validParcela();
     }
     function parcela3() {
@@ -162,7 +164,7 @@
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
       preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
-      apresPrecoFinal()
+      apresPrecoFinal();
       validParcela();
     }
     function parcela4() {
@@ -170,7 +172,7 @@
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
       preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
-      apresPrecoFinal()
+      apresPrecoFinal();
       validParcela();
     }
     function parcela5() {
@@ -178,8 +180,22 @@
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
       preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
-      apresPrecoFinal()
+      apresPrecoFinal();
       validParcela();
+    }
+
+    function validParcela() {
+      if (preco < 10) {
+          document.getElementById("preco_total").innerHTML = "O valor da parcela é menor que 10 reais...<br>R$" + preco.replace(".",",");
+          document.getElementById("btn").disabled = true;
+      }
+      else {
+          ativBotao();
+      }
+    }
+
+    function apresPrecoFinal() {
+      document.getElementById("preco_total").innerHTML = "R$" + preco.replace(".",",");
     }
   </script>
 </body>
