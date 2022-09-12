@@ -50,11 +50,9 @@
   for($i = 0; $i < 12; $i++){
     $total = $total + $valor[$i];
   }
-
-  $total = number_format($total, 2, ',', '');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -133,8 +131,9 @@
         <input type="radio" id="vezes5" value=5 name="answer" oninput="parcela5()">
         5x
       </label>
-    <h3>Preço total: R$<?php echo $total; ?> </h2><br>
+    <h3>Preço total: R$<a id = total><?php echo number_format($total, 2, ',', ''); ?></a> </h3><br>
     <h4 id=num_parcelas></h4>
+    <h3 id=preco_parcelas></h3>
   </div>
   <div class="btn-carrinho">
     <a href="index.html"><button onclick="alert('Pedido feito com sucesso!\nObrigado pela preferência.')" class="btn-carrinho">Pagamento</button></a>
@@ -145,20 +144,32 @@
     }
     function parcela2() {
       var x = document.getElementById("vezes2").value;
+      var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
+      preco = <?php echo $total; ?> / x;
+      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
       document.getElementById("prazo").innerHTML = "on";
     }
     function parcela3() {
       var x = document.getElementById("vezes3").value;
+      var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
+      preco = <?php echo $total; ?> / x;
+      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
     }
     function parcela4() {
       var x = document.getElementById("vezes4").value;
+      var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
+      preco = <?php echo $total; ?> / x;
+      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
     }
     function parcela5() {
       var x = document.getElementById("vezes5").value;
+      var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
+      preco = <?php echo $total; ?> / x;
+      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
     }
   </script>
 </body>
