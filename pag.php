@@ -59,6 +59,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pag.css">
+
+  <link type="text/javascript" src="js/pag.js">
   <title>Document</title>
 </head>
 
@@ -79,7 +81,7 @@
   <br>
   <h4>Forma de pagamento</h4>
   <br>
-  <div class="table" style="align-items: center;">
+  <center><div class="table" style="align-items: center;">
     <table border=1>
       <tr>
         <td>Quantidade</td>
@@ -103,73 +105,81 @@
 
       ?>
     </table>
-  </div>
+  </div></center><br>
   <div class="control">
     <label class="radio">
-      <input type="radio" name="answer" oninput="a_vista()">
+      <input type="radio" name="answer" id="a_vista" oninput="a_vista()">
       À Vista
     </label>
-    <label class="radio">
-      <input type="radio" name="answer" id="prazo">
-      À Prazo
-    </label>
-    <br>
-    Quantidade de parcelas:<br>
+    <br><br>
+    À prazo:<br>
       <label class="radio">
-        <input type="radio" id="vezes2" value=2 name="answer" oninput="parcela2()">
+        <input type="radio" id="vezes2" value=2 name="answer" onclick="ativ_botao()" oninput="parcela2()">
         2x
       </label><br>
       <label class="radio">
-        <input type="radio" id="vezes3" value=3 name="answer" oninput="parcela3()">
+        <input type="radio" id="vezes3" value=3 name="answer" onclick="ativ_botao()" oninput="parcela3()">
         3x
       </label><br>
       <label class="radio">
-        <input type="radio" id="vezes4" value=4 name="answer" oninput="parcela4()">
+        <input type="radio" id="vezes4" value=4 name="answer" onclick="ativ_botao()" oninput="parcela4()">
         4x
       </label><br>
       <label class="radio">
-        <input type="radio" id="vezes5" value=5 name="answer" oninput="parcela5()">
+        <input type="radio" id="vezes5" value=5 name="answer" onclick="ativ_botao()" oninput="parcela5()">
         5x
       </label>
-    <h3>Preço total: R$<a id = total><?php echo number_format($total, 2, ',', ''); ?></a> </h3><br>
-    <h4 id=num_parcelas></h4>
-    <h3 id=preco_parcelas></h3>
+    <h3>Preço total: R$<a id = total><?php echo number_format($total, 2, ',', ''); ?></a></h3>
+    <h3 id=num_parcelas></h3>
+    <h3 id=preco_total></h3>
   </div>
   <div class="btn-carrinho">
-    <a href="index.html"><button onclick="alert('Pedido feito com sucesso!\nObrigado pela preferência.')" class="btn-carrinho">Pagamento</button></a>
+    <button onclick="redirect()" class="btn-carrinho" id="btn" disabled>Pagamento</button>
   </div>
   <script text="text/javascript">
+
+    if(<?php echo $total; ?> == 0){
+      alert("Não há itens no carrrinho!");
+      window.location.replace("carrinho.html");
+    }
+
     function a_vista() {
-      document.getElementById("num_parcelas").innerHTML = "";
+      document.getElementById("num_parcelas").innerHTML = "-8,5% de desconto!";
+      document.getElementById("btn").disabled = false;
+      preco = (<?php echo $total; ?> * 0.85).toFixed(2);
+      document.getElementById("preco_total").innerHTML = "R$" + preco.replace(".",",");
     }
     function parcela2() {
       var x = document.getElementById("vezes2").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = <?php echo $total; ?> / x;
-      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
-      document.getElementById("prazo").innerHTML = "on";
+      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      apresPrecoFinal()
+      validParcela();
     }
     function parcela3() {
       var x = document.getElementById("vezes3").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = <?php echo $total; ?> / x;
-      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
+      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      apresPrecoFinal()
+      validParcela();
     }
     function parcela4() {
       var x = document.getElementById("vezes4").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = <?php echo $total; ?> / x;
-      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
+      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      apresPrecoFinal()
+      validParcela();
     }
     function parcela5() {
       var x = document.getElementById("vezes5").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = <?php echo $total; ?> / x;
-      document.getElementById("num_parcelas").innerHTML = "R$" + preco;
+      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      apresPrecoFinal()
+      validParcela();
     }
   </script>
 </body>
