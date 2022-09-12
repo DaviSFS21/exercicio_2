@@ -59,8 +59,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pag.css">
-
-  <link type="text/javascript" src="js/pag.js">
   <title>Document</title>
 </head>
 
@@ -186,16 +184,25 @@
 
     function validParcela() {
       if (preco < 10) {
-          document.getElementById("preco_total").innerHTML = "O valor da parcela é menor que 10 reais...<br>R$" + preco.replace(".",",");
-          document.getElementById("btn").disabled = true;
+        document.getElementById("preco_total").innerHTML = "O valor da parcela é menor que 10 reais...<br>R$" + preco.replace(".",",");
+        document.getElementById("btn").disabled = true;
       }
       else {
-          ativBotao();
+        ativBotao();
       }
     }
 
     function apresPrecoFinal() {
       document.getElementById("preco_total").innerHTML = "R$" + preco.replace(".",",");
+    }
+
+    function ativBotao() {
+      document.getElementById("btn").disabled = false;
+    }
+
+    function redirect() {
+      alert('Pedido feito com sucesso!\nObrigado pela preferência.');
+      window.location.replace("index.html");
     }
   </script>
 </body>
