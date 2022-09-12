@@ -153,7 +153,7 @@
       var x = document.getElementById("vezes2").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      preco = (<?php echo $total; ?> * 1.06 / x).toFixed(2);
       apresPrecoFinal();
       validParcela();
     }
@@ -161,7 +161,7 @@
       var x = document.getElementById("vezes3").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      preco = (<?php echo $total; ?> * 1.06 / x).toFixed(2);
       apresPrecoFinal();
       validParcela();
     }
@@ -169,7 +169,7 @@
       var x = document.getElementById("vezes4").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      preco = (<?php echo $total; ?> * 1.06 / x).toFixed(2);
       apresPrecoFinal();
       validParcela();
     }
@@ -177,7 +177,7 @@
       var x = document.getElementById("vezes5").value;
       var total = document.getElementById("total").value;
       document.getElementById("num_parcelas").innerHTML = x + "x";
-      preco = (<?php echo $total; ?> * 1.06 / x + 6.9 * x).toFixed(2);
+      preco = (<?php echo $total; ?> * 1.06 / x).toFixed(2);
       apresPrecoFinal();
       validParcela();
     }
