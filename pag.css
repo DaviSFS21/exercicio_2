@@ -2,47 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 body {
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
-}
-
-header {
-  width: 100%;
-  height: 80px;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: fixed;
-  z-index: 99;
-  margin-top: 0;
-  font-family: 'Quicksand', sans-serif;
-}
-
-header .menu_header ul {
-  display: flex;
-  width: 650px;
-  justify-content: space-between;
-}
-
-header .menu_header ul li {
-  padding: 0 7px;
-  list-style: none;
-}
-
-header .menu_header ul li a {
-  text-decoration: none;
-  text-transform: uppercase;
+  background: url(images/4884273.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   color: #fff;
-  transition: 0.5s ease;
-}
-
-header .menu_header ul li a:hover {
-  color: #0da5d3;
 }
 
 .go-back {
@@ -51,15 +20,24 @@ header .menu_header ul li a:hover {
   width: 2.9rem;
 }
 
-.control,
-h4 {
-  padding-left: 40%;
+.container {
+  margin: 0 33% 0 33%;
+  background: rgba(39, 39, 39, 0.2);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border-radius: 10px;
+  border: 1px solid rgba(39, 39, 39, 0.8);
+}
+
+.control{
+  padding-left: 20%;
 }
 
 .btn-carrinho {
-  margin-left: 280px;
-  border: none;
-  color: white;
+  margin-left: 37%;
+  border: 2px solid #000;
+  background-color: #ddd;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
