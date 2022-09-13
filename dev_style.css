@@ -25,7 +25,6 @@ header {
   position: fixed;
   z-index: 99;
   margin-top: 0;
-  font-family: 'Quicksand', sans-serif;
 }
 
 header .menu-header ul {
@@ -37,6 +36,8 @@ header .menu-header ul {
 header .menu-header ul li {
   padding: 0 7px;
   list-style: none;
+  margin-left: -6px;
+  margin-right: 137px;
 }
 
 header .menu-header ul li a {
