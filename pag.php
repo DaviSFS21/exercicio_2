@@ -139,7 +139,7 @@ for ($i = 0; $i < 12; $i++) {
   </div>
   <br>
   <script text="text/javascript">
-    total = <?php echo $total; ?>;
+    total = <?php echo $total; ?>; 
   </script>
   <script src="parc_resp.js" text="text/javascript"></script>
 </body>
